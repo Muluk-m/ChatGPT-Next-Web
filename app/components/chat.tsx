@@ -76,8 +76,14 @@ export function Avatar(props: { role: Message["role"] }) {
   }
 
   return (
-    <div className={styles["user-avtar"]}>
-      <Emoji unified={config.avatar} size={18} getEmojiUrl={getEmojiUrl} />
+    <div
+      className={styles["user-avtar"]}
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url(${config.avatar})`,
+      }}
+    >
+      {/* <Emoji unified={config.avatar} size={18} getEmojiUrl={getEmojiUrl} /> */}
     </div>
   );
 }

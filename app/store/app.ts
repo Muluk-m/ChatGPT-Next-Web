@@ -137,7 +137,9 @@ const DEFAULT_CONFIG: ChatConfig = {
   compressMessageLengthThreshold: 1000,
   sendBotMessages: true as boolean,
   submitKey: SubmitKey.CtrlEnter as SubmitKey,
-  avatar: "1f603",
+  // avatar: "1f603",
+  avatar:
+    "https://p3-passport.byteimg.com/img/user-avatar/9c21d5baa5f9bdb10ec2a3a2cd0b89cf~100x100.awebp",
   fontSize: 14,
   theme: Theme.Auto as Theme,
   tightBorder: false,

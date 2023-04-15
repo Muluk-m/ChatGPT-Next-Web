@@ -198,7 +198,7 @@ export function Settings(props: { closeSettings: () => void }) {
       </div>
       <div className={styles["settings"]}>
         <List>
-          <SettingItem title={Locale.Settings.Avatar}>
+          {/* <SettingItem title={Locale.Settings.Avatar}>
             <Popover
               onClose={() => setShowEmojiPicker(false)}
               content={
@@ -221,7 +221,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 <Avatar role="user" />
               </div>
             </Popover>
-          </SettingItem>
+          </SettingItem> */}
 
           <SettingItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
