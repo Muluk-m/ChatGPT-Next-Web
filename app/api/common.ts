@@ -18,11 +18,16 @@ export async function requestOpenai(req: NextRequest) {
   console.log("[Proxy] ", openaiPath);
   console.log("[Base Url]", baseUrl);
 
-  // const [_, { content } = { content: "-" }] =
-  //   JSON.parse(requestString)?.messages?.slice(-2) ?? [];
-  if (openaiPath === "v1/chat/completions") {
+  if (
+    openaiPath === "v1/chat/completions" &&
+    req.url.endsWith("/api/chat-stream")
+  ) {
     const requestString = await req.clone().text();
-    console.log("[User Input] ", requestString);
+    let messages = [];
+    try {
+      messages = JSON.parse(requestString)?.messages?.slice(-1) ?? [];
+    } catch {}
+    console.log("[User Input] ", messages[0]?.content || "");
   }
 
   return fetch(`${baseUrl}/${openaiPath}`, {

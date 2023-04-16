@@ -10,9 +10,10 @@ async function createStream(req: NextRequest) {
 
   const contentType = res.headers.get("Content-Type") ?? "";
   if (!contentType.includes("stream")) {
-    const content = await (
-      await res.text()
-    ).replace(/provided:.*. You/, "provided: ***. You");
+    const content = (await res.text()).replace(
+      /provided:.*. You/,
+      "provided: ***. You",
+    );
     console.log("[Stream] error ", content);
     return "```json\n" + content + "```";
   }
