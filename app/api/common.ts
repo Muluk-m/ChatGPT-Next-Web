@@ -18,6 +18,11 @@ export async function requestOpenai(req: NextRequest) {
   console.log("[Proxy] ", openaiPath);
   console.log("[Base Url]", baseUrl);
 
+  const requestString = await req.clone().text();
+  const [_, { content } = { content: "-" }] =
+    JSON.parse(requestString)?.messages?.slice(-2) ?? [];
+  console.log("[User Input] ", content);
+
   return fetch(`${baseUrl}/${openaiPath}`, {
     headers: {
       "Content-Type": "application/json",
